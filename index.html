@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script>
+        var i = 0;
+        p_add = () => {
+            if (document.getElementById("price").value == "") {
+                alert("Enter Item price first");
+            }
+            else {
+                var price = parseInt(document.getElementById("price").value);
+                i++;
+                document.getElementById("qty").value = i;
+                document.getElementById("tprice").value = price * i;
+            }
+
+        }
+        buttonMinus = () => {
+            if (document.getElementById("price").value == "") {
+                alert("Enter Item price first");
+            }
+            else if(document.getElementById("qty").value <= 1){
+                alert("Atleast Quantity should be 1");
+            }
+            else {
+                var price = parseInt(document.getElementById("price").value);
+                i--;
+                document.getElementById("qty").value = i;
+                document.getElementById("tprice").value = price * i;
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="container text-center mt-5">
+        <div class="card shadow" style="width: 100%;">
+            <!-- <img src="..." class="card-img-top" alt="..."> -->
+            <div class="card-body">
+                <!-- <h5 class="card-title">Card title</h5> -->
+                <p class="card-text">
+                    <label>item price</label>
+                    <input type="number" id="price" placeholder="item price">
+                    <label>Quantity</label>
+                    <input type="number" id="qty" readonly placeholder="Quantity">
+                    <label>Total Price</label>
+                    <input type="number" id="tprice" readonly placeholder="total price">
+                </p>
+                <input type="button" class="btn btn-primary" id="button2" value="-" onclick="buttonMinus()">
+                <input type="submit" class="btn btn-success" id="button1" value="+" onclick="p_add()">
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
